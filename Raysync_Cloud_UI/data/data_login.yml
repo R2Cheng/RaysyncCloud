@@ -1,0 +1,9 @@
+login_success:
+  login1:
+    num: "test_gc"
+    pwd: "12345."
+
+login_error:
+  login_error:
+     num: "test_gc"
+     pwd: "Ruiyun123"

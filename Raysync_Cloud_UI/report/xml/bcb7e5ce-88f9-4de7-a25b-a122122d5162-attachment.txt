@@ -1,0 +1,6 @@
+[32mINFO    [0m root:test_login.py:18 启动谷歌浏览器
+[32mINFO    [0m root:test_login.py:21 浏览器访问'https://client.raysync.cloud/login?language=zh-CN'网址
+[32mINFO    [0m root:test_login.py:33 -----------------test case login start-----------------
+[32mINFO    [0m root:test_login.py:35 镭速云传的账号输入为'test_gc'
+[32mINFO    [0m root:test_login.py:38 镭速云传的密码输入为'12345.'
+[32mINFO    [0m root:test_login.py:42 点击登录

@@ -1,0 +1,10 @@
+register_success:
+  register1:
+    num : "test_gn24"
+    pwd : "12345."
+    tel : "18145678911"
+
+login_error:
+  login_error:
+     num: "test_gc"
+     pwd: "Ruiyun123"

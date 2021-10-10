@@ -1,0 +1,22 @@
+{
+  "uid" : "83edc06c07f9ae9e47eb6dd1b683e4e2",
+  "name" : "packages",
+  "children" : [ {
+    "name" : "case.test_login",
+    "children" : [ {
+      "name" : "test_login[info0]",
+      "uid" : "30eee0e134c2ea68",
+      "parentUid" : "7455f18e90cc23ccd1b95606a96b7fcb",
+      "status" : "failed",
+      "time" : {
+        "start" : 1633094553516,
+        "stop" : 1633094557792,
+        "duration" : 4276
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "{'num': 'test_gc', 'pwd': '12345.'}" ]
+    } ],
+    "uid" : "case.test_login"
+  } ]
+}

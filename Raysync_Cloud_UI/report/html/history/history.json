@@ -1,0 +1,22 @@
+{
+  "fbbb08a2408e615617aedd1f91a60b94" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "30eee0e134c2ea68",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: assert '镭速云传' == '哈哈'\n  - 哈哈\n  + 镭速云传",
+      "time" : {
+        "start" : 1633094553516,
+        "stop" : 1633094557792,
+        "duration" : 4276
+      }
+    } ]
+  }
+}
