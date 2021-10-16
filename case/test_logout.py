@@ -8,6 +8,8 @@ import logging
 import os
 from Base.Driver import Driver
 from public.email import email
+import allure
+
 
 class TestLogout:
 
@@ -22,7 +24,11 @@ class TestLogout:
         logging.info("关闭驱动")
         email()
 
-
+    @allure.feature("登出模块")
+    # allure标题-title
+    @allure.story("用例--登出测试")
+    # allure描述信息
+    @allure.description("该用例是针对登出的测试")
     def test_logout(self):
         self.handle.init_space.tap_account_information()
         logging.info("点击账号信息下拉框")

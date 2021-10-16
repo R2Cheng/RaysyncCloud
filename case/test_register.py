@@ -8,6 +8,7 @@ import Handle
 import logging
 from selenium.webdriver.common.action_chains import ActionChains
 import random
+import allure
 
 url = "https://cloud-sit.raysync.cn/register"
 class TestRegister:
@@ -26,6 +27,12 @@ class TestRegister:
         Driver.quit_dirver()
         logging.info("成功关闭浏览器")
 
+    @allure.feature("注册模块")
+    # allure标题-title
+    @allure.story("用例--用户注册测试")
+    # allure描述信息
+    @allure.description("该用例是针对用户注册的测试")
+    @pytest.mark.skip(reason="阿里云滑块不支持自动化打开的浏览器使用，该用例暂时跳过执行")
     @pytest.mark.parametrize("info", Base.get_data("register", "register_success"))
     def test_Register(self, info):
         logging.info("-----------------test case register start-----------------")
@@ -56,8 +63,6 @@ class TestRegister:
         logging.info("滑动滑块")
         time.sleep(3)
 
-
-# 生成allure报告：allure generate report/xml -o report/html --clean
 
 if __name__ == '__main__':
     pytest.main(["-s", "test_register.py"])

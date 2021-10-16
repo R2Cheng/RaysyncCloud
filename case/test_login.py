@@ -7,6 +7,8 @@ import Base
 import Handle
 import logging
 import os,sys
+import allure
+
 
 sys.path.append(os.getcwd())
 url = "https://client.raysync.cloud/login?language=zh-CN"
@@ -27,7 +29,11 @@ class TestLogin:
     #     Driver.quit_dirver()
     #     logging.info("成功关闭浏览器")
 
-
+    @allure.feature("登录模块")
+    # allure标题-title
+    @allure.story("用例--登录测试")
+    # allure描述信息
+    @allure.description("该用例是针对登录的测试")
     @pytest.mark.parametrize("info", Base.get_data("login", "login_success"))
     def test_login(self,info):
         logging.info("-----------------test case login start-----------------")

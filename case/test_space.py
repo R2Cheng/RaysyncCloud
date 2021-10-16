@@ -7,13 +7,18 @@ import Handle
 import logging
 import os
 from Base.Driver import Driver
-
+import allure
 class TestSpace:
 
     def setup_class(self):
         self.driver = Driver.get_driver()
         self.handle = Handle.HandleTotal(self.driver)
 
+    @allure.feature("我的空间模块")
+    # allure标题-title
+    @allure.story("用例--下载文件/夹测试")
+    # allure描述信息
+    @allure.description("该用例是针对下载文件/夹的测试")
     def test_Download_folder(self):
         logging.info("-----------------test case Download folder start-----------------")
         self.handle.init_space.tap_Space()
@@ -46,6 +51,11 @@ class TestSpace:
         # logging.info("取消勾选文件夹")
         # time.sleep(3)
 
+    @allure.feature("我的空间模块")
+    # allure标题-title
+    @allure.story("用例--创建分享下载链接测试")
+    # allure描述信息
+    @allure.description("该用例是针对创建分享下载链接的测试")
     @pytest.mark.parametrize("info", Base.get_data("space", "Share Link"))
     def test_Share_Link(self,info):
         logging.info("-----------------test case Share_Link start-----------------")
@@ -130,6 +140,11 @@ class TestSpace:
         logging.info("取消勾选文件夹")
         time.sleep(3)
 
+    @allure.feature("我的空间模块")
+    # allure标题-title
+    @allure.story("用例--新建文件夹测试")
+    # allure描述信息
+    @allure.description("该用例是针对新建文件夹的测试")
     @pytest.mark.parametrize("info", Base.get_data("space", "New directory name"))
     def test_New_folder(self,info):
 
@@ -156,6 +171,11 @@ class TestSpace:
         # logging.info("点击取消新建按钮")
         # time.sleep(2)
 
+    @allure.feature("我的空间模块")
+    # allure标题-title
+    @allure.story("用例--搜索文件/夹测试")
+    # allure描述信息
+    @allure.description("该用例是针对搜索文件/夹的测试")
     @pytest.mark.parametrize("info", Base.get_data("space", "Search name"))
     def test_search_folder(self, info):
         time.sleep(2)
@@ -172,26 +192,36 @@ class TestSpace:
         logging.info("刷新当前页面")
         time.sleep(3)
 
-    # 重命名操作按钮暂无法定位，该测试用例不能执行
-    # @pytest.mark.parametrize("info", Base.get_data("space", "Rename directory"))
-    # def test_Rename_folder(self,info):
-    #     logging.info("-----------------test case Rename folder start-----------------")
-    #     self.handle.init_space.tap_Operation()
-    #     logging.info("点击操作按钮")
-    #     time.sleep(3)
-    #
-    #     self.handle.init_space.tap_Operation_rename()
-    #     logging.info("点击重命名操作按钮")
-    #     time.sleep(1)
-    #
-    #     self.handle.init_space.input_rename(info["name"])
-    #     logging.info("重命名文件（夹）名称输入为'{}'".format(info["name"]))
-    #     time.sleep(1)
-    #
-    #     self.handle.init_space.tap_Rename_affirm()
-    #     logging.info("点击确定重命名按钮")
-    #     time.sleep(3)
+    @allure.feature("我的空间模块")
+    # allure标题-title
+    @allure.story("用例--重命名文件/夹测试")
+    # allure描述信息
+    @allure.description("该用例是针对重命名文件/夹的测试")
+    @pytest.mark.skip(reason="重命名按钮暂时无法定位成功，该用例暂时跳过执行")
+    @pytest.mark.parametrize("info", Base.get_data("space", "Rename directory"))
+    def test_Rename_folder(self,info):
+        logging.info("-----------------test case Rename folder start-----------------")
+        self.handle.init_space.tap_Operation()
+        logging.info("点击操作按钮")
+        time.sleep(3)
 
+        self.handle.init_space.tap_Operation_rename()
+        logging.info("点击重命名操作按钮")
+        time.sleep(1)
+
+        self.handle.init_space.input_rename(info["name"])
+        logging.info("重命名文件（夹）名称输入为'{}'".format(info["name"]))
+        time.sleep(1)
+
+        self.handle.init_space.tap_Rename_affirm()
+        logging.info("点击确定重命名按钮")
+        time.sleep(3)
+
+    @allure.feature("我的空间模块")
+    # allure标题-title
+    @allure.story("用例--创建邀请上传链接测试")
+    # allure描述信息
+    @allure.description("该用例是针对创建邀请上传链接的测试")
     @pytest.mark.parametrize("info", Base.get_data("space", "Invite_to_upload"))
     def test_Invite_to_upload(self,info):
         logging.info("-----------------test case Invite_to_upload start-----------------")
@@ -257,6 +287,11 @@ class TestSpace:
         logging.info("关闭邀请链接上传窗口")
         time.sleep(2)
 
+    @allure.feature("我的空间模块")
+    # allure标题-title
+    @allure.story("用例--复制文件/夹测试")
+    # allure描述信息
+    @allure.description("该用例是针对复制文件/夹的测试")
     def test_Copy_folder(self):
         logging.info("-----------------test case Copy folder start-----------------")
         # self.handle.init_space.tap_checkbox_first()
@@ -283,6 +318,11 @@ class TestSpace:
         logging.info("Message提示‘{}’".format(msg))
         time.sleep(1)
 
+    @allure.feature("我的空间模块")
+    # allure标题-title
+    @allure.story("用例--移动文件/夹测试")
+    # allure描述信息
+    @allure.description("该用例是针对移动文件/夹的测试")
     def test_Move_folder(self):
         logging.info("-----------------test case Move folder start-----------------")
         self.handle.init_space.tap_checkbox_first()
@@ -309,6 +349,11 @@ class TestSpace:
         logging.info("Message提示‘{}’".format(msg))
         time.sleep(1)
 
+    @allure.feature("我的空间模块")
+    # allure标题-title
+    @allure.story("用例--删除文件/夹测试")
+    # allure描述信息
+    @allure.description("该用例是针对删除文件/夹的测试")
     @pytest.mark.repeat(2)
     def test_Delete_folder(self):
         logging.info("-----------------test case Delete folder start-----------------")
